@@ -1,1 +1,46 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ASF Desafios — Desafios semanais com XP | ASF</title><meta name="description" content="Desafios semanais da comunidade ASF com XP e níveis: complete missões de surf e evolua de Marolinha a Tsunami. Satélite do app ASF."><link rel="canonical" href="https://acarolmourad-commits.github.io/asf-desafios/"><meta name="theme-color" content="#00A8CC"><style>:root{--p:#00A8CC;--d:#0E2439;--u:#9B59B6;--bg:#F7FBFC;--g:#5A6B7A}*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--d)}nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #E5EEF2;padding:10px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}nav a{color:var(--p);text-decoration:none;font-weight:700;font-size:13px}nav a.on{color:var(--u)}header{background:linear-gradient(135deg,var(--p),var(--u));color:#fff;padding:40px 20px 30px;text-align:center}.wrap{max-width:640px;margin:0 auto;padding:24px 16px 60px}.lvl{background:#fff;border-radius:12px;padding:16px;margin-bottom:16px;text-align:center;box-shadow:0 2px 8px rgba(14,36,57,.06)}.bar{background:#E5EEF2;border-radius:99px;height:12px;overflow:hidden;margin:8px 0}.bar div{background:linear-gradient(90deg,var(--p),var(--u));height:100%;transition:width .3s}.card{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(14,36,57,.06)}label{display:flex;gap:10px;padding:4px 0;font-size:14.5px;cursor:pointer}input{accent-color:var(--p)}.muted{color:var(--g);font-size:12.5px}footer{text-align:center;font-size:12.5px;color:var(--g);padding:24px;border-top:1px solid #E5EEF2}</style></head><body><nav><a href="https://acarolmourad-commits.github.io/asf-app/">🏄 App</a><a class="on" href="https://acarolmourad-commits.github.io/asf-desafios/">🎯 Desafios</a><a href="https://acarolmourad-commits.github.io/asf-ranking/">🏆 Ranking</a><a href="https://acarolmourad-commits.github.io/asf-quiz/">❓ Quiz</a><a href="https://acarolmourad-commits.github.io/asf-desafio/">📈 Desafio 30</a></nav><header><h1>🎯 Desafios da semana</h1><p>Complete missões, ganhe XP e suba de nível na comunidade.</p></header><main class="wrap"><div class="lvl"><strong id="nivel">Marolinha 🌊</strong><div class="bar"><div id="bar" style="width:0%"></div></div><div class="muted"><span id="xp">0</span> XP desta semana</div></div><div id="lista"></div><p class="muted">Seu XP fica salvo neste navegador. Dispute no <a href="https://acarolmourad-commits.github.io/asf-ranking/" style="color:var(--p)">ASF Ranking</a>.</p></main><footer>🌊 ASF · <a href="https://acarolmourad-commits.github.io/" style="color:var(--p)">Hub de apps</a></footer><script>const desafios=[['Surfar 2 sessões na semana',40],['Fazer o checklist pré-surf completo',15],['Treinar pop-up 3x em casa',20],['Aprender 5 termos novos no Glossário',15],['Levar uma amiga para surfar',30],['Assistir 1 workshop ou guia de segurança',20],['Ajudar em 1 mutirão ou ação eco',40]];const niveis=[[0,'Marolinha 🌊'],[50,'Quebra-coco 🏄‍♀️'],[100,'Local 🌺'],[150,'Tsunami 🌪️']];const K='asf-desafios-v1';let st=JSON.parse(localStorage.getItem(K)||'{}');const lista=document.getElementById('lista');desafios.forEach((d,i)=>lista.insertAdjacentHTML('beforeend',`<div class="card"><label><input type="checkbox" data-i="${i}" ${st[i]?'checked':''}> ${d[0]} <span class="muted">+${d[1]} XP</span></label></div>`));function att(){let xp=0;desafios.forEach((d,i)=>st[i]&&(xp+=d[1]));document.getElementById('xp').textContent=xp;document.getElementById('bar').style.width=Math.min(100,xp/150*100)+'%';let n=niveis[0][1];niveis.forEach(l=>xp>=l[0]&&(n=l[1]));document.getElementById('nivel').textContent=n;}lista.onchange=e=>{st[e.target.dataset.i]=e.target.checked;localStorage.setItem(K,JSON.stringify(st));att();};att();</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASF Desafios — ASF</title>
+<meta name="description" content="Desafios semanais da comunidade com XP e níveis">
+<style>
+:root{--rosa:#ff4d8d;--roxo:#7b2ff7;--areia:#fff5ec;--mar:#00c2cb}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+body{background:linear-gradient(160deg,#fff5ec,#ffe3f1 60%,#e0f7fa);min-height:100vh;color:#333}
+header{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;padding:2rem 1rem;text-align:center}
+header h1{font-size:2rem} header p{opacity:.9;margin-top:.4rem}
+nav{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;padding:.8rem;background:#fff;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
+nav a{background:var(--areia);border:1px solid #ffd3e6;color:#c2185b;padding:.3rem .7rem;border-radius:20px;font-size:.78rem;text-decoration:none}
+main{max-width:760px;margin:1.5rem auto;padding:0 1rem}
+.card{background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px #7b2ff720;margin-bottom:1.2rem}
+.card h2{color:var(--roxo);margin-bottom:.6rem;font-size:1.2rem}
+button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer;margin:.2rem 0}
+input,select,textarea{padding:.5rem;border:1px solid #ddd;border-radius:10px;width:100%;margin:.3rem 0;font-size:1rem}
+.xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
+footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
+</style>
+</head>
+<body>
+<header><h1>🎯 ASF Desafios</h1><p>Desafios semanais da comunidade com XP e níveis</p></header>
+<nav><a href="https://acarolmourad-commits.github.io/">🌐 Hub ASF</a>
+<a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<a href="https://acarolmourad-commits.github.io/asf-ranking/">🏆 Ranking</a>
+<a href="https://acarolmourad-commits.github.io/asf-desafio/">Desafio 30</a>
+<a href="https://acarolmourad-commits.github.io/asf-quiz/">Quiz</a></nav>
+<main>
+<div class="card"><h2>🎯 Desafios da Semana</h2><div id="lista"></div></div>
+<div class="card"><p>Complete desafios e suba no <a href='https://acarolmourad-commits.github.io/asf-ranking/'>ASF Ranking</a>. Para um desafio longo, veja o <a href='https://acarolmourad-commits.github.io/asf-desafio/'>Desafio 30 dias</a>.</p></div>
+<div class="card"><h2>🌐 Ecossistema ASF</h2><p>Ganhe XP aqui e veja seu progresso no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>. Explore tudo no <a href="https://acarolmourad-commits.github.io/">Hub ASF</a>.</p></div>
+</main>
+<div class="xp">⭐ XP: <span id="xp">0</span></div>
+<footer>ASF — Associação de Surf Feminino · <a href="https://acarolmourad-commits.github.io/asf-app/">asf-app</a></footer>
+<script>
+const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
+function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
+document.getElementById('xp').textContent=XP();
+const D=[{t:'🌊 Surfe 3 sessões essa semana',xp:30},{t:'🧘‍♀️ Complete a sequência ASF Yoga 2x',xp:20},{t:'🌬️ 5 ciclos no ASF Respira',xp:20},{t:'📓 Registre 3 sessões no ASF Diário',xp:25},{t:'🌱 Recolha 10 itens de lixo (ASF Eco)',xp:30},{t:'🧠 Acerte o Quiz 3 dias seguidos',xp:25},{t:'🤝 Compartilhe sua história na Comunidade',xp:20}];const st=JSON.parse(localStorage.getItem('asf_desafios')||'{}');function render(){document.getElementById('lista').innerHTML=D.map((d,i)=>`<label style="display:block;margin:.5rem 0;padding:.6rem;border:2px solid ${st[i]?'#43a047':'#eee'};border-radius:12px"><input type="checkbox" style="width:auto" ${st[i]?'checked':''} onchange="tgl(${i})"> ${d.t} <b style="float:right;color:var(--roxo)">+${d.xp} XP</b></label>`).join('');}window.tgl=i=>{st[i]=!st[i];if(st[i])addXP(D[i].xp);else addXP(-D[i].xp);localStorage.setItem('asf_desafios',JSON.stringify(st));render();};render();
+</script>
+</body>
+</html>
