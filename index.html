@@ -52,5 +52,8 @@ function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById(
 document.getElementById('xp').textContent=XP();
 const D=[{t:'🌊 Surfe 3 sessões essa semana',xp:30},{t:'🧘‍♀️ Complete a sequência ASF Yoga 2x',xp:20},{t:'🌬️ 5 ciclos no ASF Respira',xp:20},{t:'📓 Registre 3 sessões no ASF Diário',xp:25},{t:'🌱 Recolha 10 itens de lixo (ASF Eco)',xp:30},{t:'🧠 Acerte o Quiz 3 dias seguidos',xp:25},{t:'🤝 Compartilhe sua história na Comunidade',xp:20}];const st=JSON.parse(localStorage.getItem('asf_desafios')||'{}');function render(){document.getElementById('lista').innerHTML=D.map((d,i)=>`<label style="display:block;margin:.5rem 0;padding:.6rem;border:2px solid ${st[i]?'#43a047':'#eee'};border-radius:12px"><input type="checkbox" style="width:auto" ${st[i]?'checked':''} onchange="tgl(${i})"> ${d.t} <b style="float:right;color:var(--roxo)">+${d.xp} XP</b></label>`).join('');}window.tgl=i=>{st[i]=!st[i];if(st[i])addXP(D[i].xp);else addXP(-D[i].xp);localStorage.setItem('asf_desafios',JSON.stringify(st));render();};render();
 </script>
+
+<!-- ASF LGPD footer -->
+<footer style="margin-top:40px;padding:16px;text-align:center;font-size:12px;opacity:.75"><a href="https://acarolmourad-commits.github.io/asf-app/privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> · <a href="https://acarolmourad-commits.github.io/asf-app/cookies.html" target="_blank" rel="noopener">Política de Cookies</a> · <a href="https://acarolmourad-commits.github.io/asf-app/termos-de-uso.html" target="_blank" rel="noopener">Termos de Uso</a> · ASF — Associação de Surf Feminino</footer>
 </body>
 </html>
